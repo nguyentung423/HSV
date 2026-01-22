@@ -1,0 +1,14 @@
+Document Placeholder Directory
+==============================
+
+Đây là thư mục chứa các file tài liệu hướng dẫn (.pdf, .docx).
+
+Các file cần có:
+- hvs-umea-guide.pdf (cho hệ thống HVS-UMEA)
+
+Để thêm tài liệu:
+1. Copy file .pdf hoặc .docx vào thư mục này
+2. Cập nhật docFile trong systems.json
+3. Restart server nếu cần
+
+Lưu ý: Nếu không có file tài liệu, nút "Mở tài liệu" sẽ hiển thị cảnh báo.

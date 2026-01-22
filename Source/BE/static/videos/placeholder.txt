@@ -1,0 +1,18 @@
+Video Placeholder Directory
+===========================
+
+Đây là thư mục chứa các file video hướng dẫn (.mp4).
+
+Các file cần có:
+- hvs-gate.mp4
+- hvs-kios-lite.mp4
+- hvs-food.mp4
+- hvs-kios.mp4
+- hvs-umea.mp4
+
+Để thêm video:
+1. Copy file .mp4 vào thư mục này
+2. Đặt tên file trùng với videoFile trong systems.json
+3. Restart server nếu cần
+
+Lưu ý: Nếu không có file video, UI sẽ hiển thị thông báo và không crash.

@@ -1,0 +1,168 @@
+{
+  "systems": [
+    {
+      "id": "hvs-gate",
+      "name": "HVS-GATE",
+      "group": "fruit",
+      "appLink": "https://gate.hvs-system.com",
+      "videoFile": "hvs-gate.mp4",
+      "docFile": null,
+      "segments": [
+        {
+          "title": "Giới thiệu HVS-GATE",
+          "start": 0,
+          "end": 30,
+          "summary": "Tổng quan về hệ thống HVS-GATE - Cổng kiểm soát ra vào thông minh. Hệ thống giúp quản lý và kiểm soát việc ra vào của nhân viên và khách."
+        },
+        {
+          "title": "Đăng ký thẻ ra vào",
+          "start": 30,
+          "end": 75,
+          "summary": "Hướng dẫn cách đăng ký thẻ ra vào cho nhân viên mới. Bao gồm các bước: nhập thông tin, chụp ảnh, và kích hoạt thẻ."
+        },
+        {
+          "title": "Quản lý lịch sử ra vào",
+          "start": 75,
+          "end": 120,
+          "summary": "Cách xem và xuất báo cáo lịch sử ra vào. Bộ lọc theo thời gian, theo nhân viên, và xuất file Excel."
+        }
+      ]
+    },
+    {
+      "id": "hvs-kios-lite",
+      "name": "HVS-KIOS LITE",
+      "group": "fruit",
+      "appLink": "https://kios-lite.hvs-system.com",
+      "videoFile": "hvs-kios-lite.mp4",
+      "docFile": null,
+      "segments": [
+        {
+          "title": "Giới thiệu KIOS LITE",
+          "start": 0,
+          "end": 25,
+          "summary": "Phiên bản gọn nhẹ của hệ thống KIOS. Phù hợp cho các điểm bán nhỏ, quầy hàng di động."
+        },
+        {
+          "title": "Cài đặt và cấu hình",
+          "start": 25,
+          "end": 60,
+          "summary": "Hướng dẫn cài đặt phần mềm KIOS LITE trên máy tính bảng hoặc máy POS. Cấu hình kết nối máy in và máy quét."
+        },
+        {
+          "title": "Thực hiện giao dịch bán hàng",
+          "start": 60,
+          "end": 100,
+          "summary": "Demo quy trình bán hàng: chọn sản phẩm, áp dụng khuyến mãi, thanh toán và in hóa đơn."
+        }
+      ]
+    },
+    {
+      "id": "hvs-food",
+      "name": "HVS-FOOD",
+      "group": "branch",
+      "appLink": "https://food.hvs-system.com",
+      "videoFile": "hvs-food.mp4",
+      "docFile": null,
+      "segments": [
+        {
+          "title": "Tổng quan HVS-FOOD",
+          "start": 0,
+          "end": 40,
+          "summary": "Hệ thống quản lý nhà hàng, quán ăn toàn diện. Quản lý từ đặt bàn, gọi món đến thanh toán và báo cáo doanh thu."
+        },
+        {
+          "title": "Quản lý thực đơn",
+          "start": 40,
+          "end": 90,
+          "summary": "Cách thêm, sửa, xóa món ăn trong thực đơn. Phân loại món, đặt giá, và quản lý hình ảnh món ăn."
+        },
+        {
+          "title": "Quản lý bàn và order",
+          "start": 90,
+          "end": 140,
+          "summary": "Sơ đồ bàn trực quan, nhận order từ khách, gửi order về bếp, và theo dõi trạng thái món ăn."
+        },
+        {
+          "title": "Thanh toán và báo cáo",
+          "start": 140,
+          "end": 180,
+          "summary": "Quy trình thanh toán đa hình thức. Xem báo cáo doanh thu theo ngày, tuần, tháng và xuất báo cáo."
+        }
+      ]
+    },
+    {
+      "id": "hvs-kios",
+      "name": "HVS-KIOS",
+      "group": "branch",
+      "appLink": "https://kios.hvs-system.com",
+      "videoFile": "hvs-kios.mp4",
+      "docFile": null,
+      "segments": [
+        {
+          "title": "Giới thiệu HVS-KIOS",
+          "start": 0,
+          "end": 35,
+          "summary": "Hệ thống bán hàng chuyên nghiệp cho cửa hàng, siêu thị mini. Tích hợp quản lý kho, nhân viên và khách hàng."
+        },
+        {
+          "title": "Quản lý sản phẩm và kho",
+          "start": 35,
+          "end": 85,
+          "summary": "Nhập liệu sản phẩm, quản lý barcode, theo dõi tồn kho và cảnh báo hết hàng tự động."
+        },
+        {
+          "title": "Giao dịch bán hàng",
+          "start": 85,
+          "end": 130,
+          "summary": "Quy trình bán hàng nhanh với máy quét barcode. Áp dụng giảm giá, tích điểm khách hàng thân thiết."
+        },
+        {
+          "title": "Báo cáo và phân tích",
+          "start": 130,
+          "end": 170,
+          "summary": "Dashboard tổng quan kinh doanh. Báo cáo lợi nhuận, sản phẩm bán chạy và phân tích xu hướng."
+        }
+      ]
+    },
+    {
+      "id": "hvs-umea",
+      "name": "HVS-UMEA",
+      "group": "root",
+      "appLink": "https://umea.hvs-system.com",
+      "videoFile": "hvs-umea.mp4",
+      "docFile": "hvs-umea-guide.pdf",
+      "segments": [
+        {
+          "title": "Tổng quan hệ thống UMEA",
+          "start": 0,
+          "end": 45,
+          "summary": "UMEA là nền tảng quản lý doanh nghiệp tổng thể. Tích hợp tất cả các module: nhân sự, tài chính, dự án và khách hàng."
+        },
+        {
+          "title": "Module Quản lý nhân sự",
+          "start": 45,
+          "end": 100,
+          "summary": "Quản lý hồ sơ nhân viên, chấm công, tính lương và đánh giá hiệu suất. Tích hợp với HVS-GATE."
+        },
+        {
+          "title": "Module Tài chính - Kế toán",
+          "start": 100,
+          "end": 160,
+          "summary": "Quản lý thu chi, công nợ, báo cáo tài chính theo chuẩn kế toán Việt Nam. Kết nối ngân hàng tự động."
+        },
+        {
+          "title": "Module Quản lý dự án",
+          "start": 160,
+          "end": 210,
+          "summary": "Tạo và theo dõi dự án, phân công công việc, Gantt chart và báo cáo tiến độ thời gian thực."
+        },
+        {
+          "title": "Tích hợp và API",
+          "start": 210,
+          "end": 250,
+          "summary": "Hướng dẫn tích hợp UMEA với các hệ thống khác qua REST API. Webhook và đồng bộ dữ liệu."
+        }
+      ]
+    }
+  ]
+}

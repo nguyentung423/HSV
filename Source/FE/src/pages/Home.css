@@ -1,0 +1,1665 @@
+/* =====================================================
+   HVS ECOSYSTEM - ECO-REALISM / SOLARPUNK STYLE
+   Real Tree • Nature • Organic Beauty
+   ===================================================== */
+
+/* =====================================================
+   BASE CONTAINER
+   ===================================================== */
+.home-container {
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: #0d1f12;
+}
+
+/* =====================================================
+   DEEP FOREST BACKGROUND - Natural Greens
+   ===================================================== */
+.forest-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-gradient-layer {
+  position: absolute;
+  inset: 0;
+  background:
+    /* Sky gradient at top */
+    radial-gradient(
+      ellipse 120% 50% at 50% 0%,
+      rgba(76, 175, 80, 0.15) 0%,
+      transparent 50%
+    ),
+    /* Ground glow at bottom */
+    radial-gradient(
+        ellipse 100% 60% at 50% 100%,
+        rgba(62, 39, 35, 0.4) 0%,
+        transparent 50%
+      ),
+    /* Main forest gradient */
+    linear-gradient(
+        180deg,
+        #1a3320 0%,
+        /* Dark forest top */ #0d1f12 30%,
+        /* Deep shadow */ #152a1a 60%,
+        /* Mid forest */ #1b2f1e 100% /* Forest floor */
+      );
+}
+
+.bg-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.25;
+}
+
+/* Sunlight filtering through canopy */
+.glow-top {
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 235, 59, 0.3) 0%,
+    rgba(76, 175, 80, 0.1) 50%,
+    transparent 70%
+  );
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: sunlight 10s ease-in-out infinite;
+}
+
+/* Earth warmth at bottom */
+.glow-bottom {
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(121, 85, 72, 0.3) 0%,
+    rgba(62, 39, 35, 0.2) 50%,
+    transparent 70%
+  );
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: earthGlow 8s ease-in-out infinite 3s;
+}
+
+@keyframes sunlight {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+@keyframes earthGlow {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+/* =====================================================
+   LOADING SCREEN
+   ===================================================== */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 24px;
+}
+
+.loading-icon {
+  color: #66bb6a;
+  filter: drop-shadow(0 0 20px rgba(102, 187, 106, 0.5));
+}
+
+.loading-screen p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* =====================================================
+   HEADER - Nature Theme
+   ===================================================== */
+.header {
+  position: relative;
+  z-index: 100;
+  padding: 12px 30px;
+  flex-shrink: 0;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand-icon {
+  color: #81c784;
+  filter: drop-shadow(0 0 10px rgba(129, 199, 132, 0.4));
+}
+
+.brand-text h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 0;
+  background: linear-gradient(135deg, #a5d6a7 0%, #66bb6a 50%, #aed581 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-text span {
+  display: block;
+  font-size: 0.65rem;
+  color: rgba(165, 214, 167, 0.6);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* =====================================================
+   MAIN TREE AREA
+   ===================================================== */
+.tree-main {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  z-index: 10;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* =====================================================
+   TREE CONTAINER - Fixed Height for Perfect Alignment
+   ===================================================== */
+.tree-container {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  height: 100%;
+  max-height: calc(100vh - 120px);
+}
+
+/* =====================================================
+   SVG TREE - BACKGROUND LAYER (z-0)
+   ===================================================== */
+.tree-svg-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* =====================================================
+   CARDS LAYER - HTML Overlay (z-10)
+   ===================================================== */
+.cards-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+/* =====================================================
+   BRANCH ROW - Top nodes sitting ON the branches
+   ===================================================== */
+.branch-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 60px;
+  height: 110px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.branch-node {
+  display: flex;
+  justify-content: center;
+}
+
+/* Position left node to sit on left branch - slightly lower and inward */
+.branch-node.left {
+  margin-top: 40px; /* Push down more to sit on branch curve */
+  margin-left: 30px; /* Move inward toward trunk */
+}
+
+/* Position right node to sit on right branch - mirror of left */
+.branch-node.right {
+  margin-top: 40px; /* Push down more to sit on branch curve */
+  margin-right: 30px; /* Move inward toward trunk */
+}
+
+/* =====================================================
+   TRUNK COLUMN - Centered Vertical Stack
+   ===================================================== */
+.trunk-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0;
+  gap: 30px; /* Compact gap to fit viewport */
+}
+
+.trunk-node {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* =====================================================
+   TREE NODE CARD - FROSTED WHITE GLASS (Nature Contrast)
+   ===================================================== */
+.tree-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.node-glow-ring {
+  position: absolute;
+  width: 180%;
+  height: 180%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--node-glow) 0%, transparent 70%);
+  opacity: 0;
+  filter: blur(25px);
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.tree-node:hover .node-glow-ring {
+  opacity: 0.5;
+}
+
+/* Card - FROSTED WHITE GLASS for nature contrast - COMPACT */
+.node-card {
+  position: relative;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 100px;
+  text-align: center;
+  box-shadow:
+    0 3px 15px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Subtle top highlight */
+.node-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.tree-node:hover .node-card {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.3),
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    0 0 20px -5px var(--node-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.node-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    var(--node-color),
+    rgba(255, 255, 255, 0.2)
+  );
+  border-radius: 10px;
+  color: white;
+  margin: 0 auto 6px;
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.node-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.doc-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  padding: 3px 6px;
+  background: linear-gradient(135deg, #ff8a65, #ff7043);
+  color: #fff;
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(255, 112, 67, 0.4);
+}
+
+/* =====================================================
+   ACTION BUTTONS (Below card) - Nature Theme
+   ===================================================== */
+.node-actions {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
+}
+
+.tree-node:hover .node-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.action-btn {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.action-btn.access:hover {
+  border-color: #81c784;
+  color: #81c784;
+  box-shadow: 0 0 12px rgba(129, 199, 132, 0.5);
+}
+
+.action-btn.tutorial:hover {
+  border-color: #ffb74d;
+  color: #ffb74d;
+  box-shadow: 0 0 12px rgba(255, 183, 77, 0.5);
+}
+
+/* =====================================================
+   VIDEO CHOICE POPUP
+   ===================================================== */
+.choice-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.video-choice-popup {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  background: rgba(20, 35, 25, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 15px 50px rgba(0, 0, 0, 0.5),
+    0 0 30px var(--node-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  z-index: 200;
+}
+
+/* Default: popup above node */
+.video-choice-popup.above {
+  bottom: calc(100% + 12px);
+}
+
+/* Popup below node (for top nodes like HVS-GATE, HVS-KIOS LITE) */
+.video-choice-popup.below {
+  top: calc(100% + 12px);
+}
+
+.choice-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.choice-header span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+}
+
+.close-choice {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-choice:hover {
+  background: rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.choice-options {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.choice-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.choice-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--node-color);
+}
+
+.choice-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: white;
+}
+
+.link-choice .choice-icon {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.mp4-choice .choice-icon {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.choice-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.choice-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+}
+
+.choice-desc {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.choice-badge {
+  padding: 4px 10px;
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #60a5fa;
+}
+
+.choice-badge.mp4 {
+  background: rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+/* =====================================================
+   FOOTER - Nature Theme
+   ===================================================== */
+.footer {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 8px;
+  flex-shrink: 0;
+  background: linear-gradient(0deg, rgba(62, 39, 35, 0.4), transparent);
+}
+
+.footer p {
+  color: rgba(165, 214, 167, 0.5);
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+
+/* Laptop 15 inch and similar (around 1440px height) */
+@media (max-height: 900px) {
+  .header {
+    padding: 8px 24px;
+  }
+
+  .brand-text h1 {
+    font-size: 1.2rem;
+  }
+
+  .tree-container {
+    max-height: calc(100vh - 80px);
+  }
+
+  .branch-row {
+    height: 70px;
+  }
+
+  .trunk-column {
+    gap: 20px;
+    padding: 10px 0;
+  }
+
+  .node-card {
+    padding: 8px 12px;
+    min-width: 90px;
+  }
+
+  .node-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .node-title {
+    font-size: 0.65rem;
+  }
+
+  .footer {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .tree-container {
+    max-width: 750px;
+  }
+
+  .branch-row {
+    padding: 0 20px;
+    height: 80px;
+  }
+
+  .node-card {
+    padding: 10px 14px;
+    min-width: 95px;
+  }
+
+  .node-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .node-title {
+    font-size: 0.68rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px 16px;
+  }
+
+  .brand-text h1 {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .tree-container {
+    max-width: 100%;
+  }
+
+  .branch-row {
+    padding: 0 10px;
+    height: 70px;
+  }
+
+  .trunk-column {
+    padding: 8px 0;
+    gap: 15px;
+  }
+
+  .node-card {
+    padding: 8px 12px;
+    min-width: 85px;
+    border-radius: 12px;
+  }
+
+  .node-icon {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+  }
+
+  .node-title {
+    font-size: 0.6rem;
+  }
+
+  .node-actions {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .branch-row {
+    height: 60px;
+  }
+
+  .node-card {
+    padding: 6px 10px;
+    min-width: 70px;
+    border-radius: 10px;
+  }
+
+  .node-icon {
+    width: 22px;
+    height: 22px;
+    margin-bottom: 4px;
+  }
+
+  .node-title {
+    font-size: 0.55rem;
+  }
+
+  .doc-badge {
+    font-size: 0.4rem;
+    padding: 2px 4px;
+  }
+}
+
+/* =====================================================
+   VIDEO BRANCHES - Expanding from Node
+   ===================================================== */
+.tree-node.expanded {
+  z-index: 1000;
+}
+
+.video-branches {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  z-index: 100;
+  pointer-events: auto;
+}
+
+.close-videos-btn {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(239, 68, 68, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  z-index: 110;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+
+.close-videos-btn:hover {
+  background: rgba(239, 68, 68, 1);
+}
+
+.video-branch {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.video-branch.left-branch {
+  flex-direction: row-reverse;
+}
+
+.video-branch.right-branch {
+  flex-direction: row;
+}
+
+/* Branch connecting lines */
+.branch-line {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--node-color),
+    rgba(255, 255, 255, 0.5)
+  );
+  position: relative;
+}
+
+.branch-line::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--node-color);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 10px var(--node-glow);
+}
+
+.left-line::before {
+  right: -4px;
+}
+
+.right-line::before {
+  left: -4px;
+}
+
+/* Video Card Styling */
+.video-card {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 20px var(--node-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  width: 280px;
+}
+
+.video-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.video-header svg {
+  color: var(--node-color);
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  background: #000;
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Video Type Badge */
+.video-type-badge {
+  margin-left: auto;
+  padding: 2px 8px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.video-type-badge.mp4 {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+/* Video Summary Section */
+.video-summary {
+  padding: 12px 14px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-summary h4 {
+  margin: 0 0 8px 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--node-color);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.video-summary p {
+  margin: 0;
+  font-size: 0.65rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  max-height: 60px;
+  overflow-y: auto;
+}
+
+.video-summary p::-webkit-scrollbar {
+  width: 4px;
+}
+
+.video-summary p::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.video-summary p::-webkit-scrollbar-thumb {
+  background: var(--node-color);
+  border-radius: 2px;
+}
+
+/* MP4 Video Container */
+.video-embed.mp4-container {
+  position: relative;
+}
+
+.video-embed.mp4-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+/* MP4 Video Controls Overlay */
+.mp4-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.mp4-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mp4-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--node-color);
+}
+
+.mp4-btn.play-btn {
+  width: 40px;
+  height: 40px;
+  background: var(--node-color);
+  border-color: transparent;
+}
+
+.mp4-btn.play-btn:hover {
+  background: var(--node-color);
+  filter: brightness(1.2);
+}
+
+/* Link video card styling */
+.video-card.link-video .video-header {
+  border-left: 3px solid #3b82f6;
+}
+
+/* MP4 video card styling */
+.video-card.mp4-video .video-header {
+  border-left: 3px solid #10b981;
+}
+
+/* Responsive Video Branches */
+@media (max-width: 1200px) {
+  .video-card {
+    width: 240px;
+  }
+
+  .branch-line {
+    width: 30px;
+  }
+
+  .video-summary p {
+    max-height: 50px;
+  }
+}
+
+@media (max-width: 900px) {
+  .video-branches {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .video-branch.left-branch,
+  .video-branch.right-branch {
+    flex-direction: column;
+  }
+
+  .branch-line {
+    width: 2px;
+    height: 30px;
+  }
+
+  .video-card {
+    width: 260px;
+  }
+
+  .close-videos-btn {
+    top: -50px;
+  }
+
+  .video-summary {
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .video-card {
+    width: 200px;
+  }
+
+  .video-header {
+    padding: 8px 10px;
+    font-size: 0.65rem;
+  }
+
+  .video-summary h4 {
+    font-size: 0.6rem;
+  }
+
+  .video-summary p {
+    font-size: 0.55rem;
+    max-height: 40px;
+  }
+
+  .mp4-btn {
+    width: 28px;
+    height: 28px;
+  }
+
+  .mp4-btn.play-btn {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* =====================================================
+   VIDEO SECTION - FULL SCREEN OVERLAY
+   ===================================================== */
+.video-section-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(10, 20, 15, 0.95);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.video-section-container {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  max-height: 90vh;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 40, 30, 0.95),
+    rgba(15, 30, 22, 0.98)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.5),
+    0 0 40px var(--section-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Video Section Header */
+.video-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--section-color);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.section-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.section-title h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.section-title span {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 2px;
+}
+
+.close-section-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+  color: #ef4444;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-section-btn:hover {
+  background: rgba(239, 68, 68, 0.3);
+  border-color: #ef4444;
+}
+
+/* Video Tabs */
+.video-tabs {
+  display: flex;
+  gap: 12px;
+  padding: 16px 24px;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.video-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.video-tab:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.video-tab.active {
+  background: linear-gradient(
+    135deg,
+    var(--section-color),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-color: var(--section-color);
+  color: white;
+  box-shadow: 0 4px 15px var(--section-glow);
+}
+
+.tab-badge {
+  padding: 3px 8px;
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 5px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #60a5fa;
+}
+
+.tab-badge.mp4 {
+  background: rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+/* Video Section Content */
+.video-section-content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 0;
+  overflow: hidden;
+}
+
+/* Video Player Area */
+.video-player-area {
+  padding: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-player {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-wrapper {
+  flex: 1;
+  position: relative;
+  background: #000;
+  min-height: 0;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-wrapper video {
+  object-fit: contain;
+}
+
+.video-info-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-title-display {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+}
+
+.video-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+}
+
+/* Custom Video Controls for MP4 */
+.custom-controls {
+  padding: 16px 18px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.progress-filled {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--section-color),
+    rgba(255, 255, 255, 0.8)
+  );
+  border-radius: 3px;
+  transition: width 0.1s linear;
+}
+
+.progress-handle {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.progress-bar:hover .progress-handle {
+  opacity: 1;
+}
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.controls-left,
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--section-color);
+}
+
+.control-btn.play {
+  width: 50px;
+  height: 50px;
+  background: var(--section-color);
+  border-color: transparent;
+  border-radius: 50%;
+}
+
+.control-btn.play:hover {
+  filter: brightness(1.2);
+}
+
+.control-btn.loop-btn {
+  width: auto;
+  padding: 0 14px;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.control-btn.loop-btn.active {
+  background: var(--section-color);
+  border-color: transparent;
+}
+
+.time-display {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: monospace;
+  margin-left: 8px;
+}
+
+/* Video Summary Panel */
+.video-summary-panel {
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.summary-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--section-color);
+}
+
+.summary-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+}
+
+.summary-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.summary-content h4 {
+  margin: 0 0 16px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--section-color);
+}
+
+.summary-text {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: pre-wrap;
+  font-family: inherit;
+  background: none;
+  border: none;
+}
+
+/* Scrollbar for summary */
+.summary-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.summary-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.summary-content::-webkit-scrollbar-thumb {
+  background: var(--section-color);
+  border-radius: 3px;
+}
+
+/* Quick Actions */
+.quick-actions {
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quick-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: linear-gradient(
+    135deg,
+    var(--section-color),
+    rgba(255, 255, 255, 0.1)
+  );
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-action-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.quick-action-btn.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.quick-action-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--section-color);
+}
+
+/* Responsive Video Section */
+@media (max-width: 1200px) {
+  .video-section-content {
+    grid-template-columns: 1fr 320px;
+  }
+}
+
+@media (max-width: 900px) {
+  .video-section-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+  }
+
+  .video-summary-panel {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-height: 250px;
+  }
+
+  .video-section-header {
+    padding: 12px 16px;
+  }
+
+  .section-title h2 {
+    font-size: 1.1rem;
+  }
+
+  .back-btn span {
+    display: none;
+  }
+
+  .video-tabs {
+    padding: 12px 16px;
+  }
+
+  .video-tab {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+
+  .video-player-area {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .video-section-overlay {
+    padding: 10px;
+  }
+
+  .video-section-container {
+    border-radius: 16px;
+  }
+
+  .video-tabs {
+    gap: 8px;
+  }
+
+  .video-tab span:not(.tab-badge) {
+    display: none;
+  }
+
+  .video-tab {
+    padding: 10px 14px;
+  }
+
+  .summary-content {
+    padding: 14px;
+  }
+
+  .summary-text {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+
+  .quick-actions {
+    padding: 12px 14px;
+  }
+
+  .quick-action-btn {
+    padding: 12px 16px;
+    font-size: 0.8rem;
+  }
+}
