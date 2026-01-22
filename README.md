@@ -2,15 +2,24 @@
 
 Portal hướng dẫn sử dụng các hệ thống HVS với giao diện cây hệ sinh thái.
 
-## 🚀 Cách chạy với Docker (Khuyến nghị)
+## 🚀 Chạy dự án chỉ với 1 lệnh (Docker Compose)
+
+Sau khi clone về, bạn chỉ cần chạy lệnh sau trong thư mục gốc dự án:
 
 ```bash
-cd User-Help
 docker-compose up --build
 ```
 
-- Frontend: http://localhost:5173
-- Backend: http://localhost:8000
+Sau khi build xong:
+
+- Truy cập FE: http://localhost:5173
+- Truy cập BE: http://localhost:8000
+
+> **Lưu ý:**
+>
+> - Cần cài sẵn Docker & Docker Compose.
+> - Không cần cài Python, Node.js, không cần setup gì thêm.
+> - Mọi thứ sẽ tự động build và chạy.
 
 ## 🖥️ Cách chạy Local
 
